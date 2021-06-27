@@ -23,7 +23,23 @@ def checkin(phone,place):
     f.write(phone+'\n')
     print('Checking in ' + phone + ' into ' +pl[place-1])
     f.close()
-  return
+def checkout(phone):
+  check=0
+  for i in range(5):
+    a=pl[i]
+    f = open(a+".txt", "r")
+    lines = f.readlines()
+    if(phone+'\n' in lines or phone==lines[-1] or phone==lines[0]):
+      f.close()
+      f = open(a+".txt", "w")
+      for line in lines:
+        print(line)
+        if line.strip("\n") != phone:
+            f.write(line)
+      f.close()
+      check=1
+  if(check==0):
+    print('this phone is not checkin')
 print('''Welcome to Chula Chanal!!!
 Available commands:
         1. Check in user
