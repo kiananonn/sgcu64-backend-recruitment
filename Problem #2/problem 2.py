@@ -1,4 +1,29 @@
 pl=['Mahamakut Building','Sara Phra Kaew','CU Sport Complex','Sanum Juub','Samyan Mitr Town']
+def checkin(phone,place):
+  a=pl[int(place)-1]
+  f = open(a+".txt", "r")
+  lines = f.readline()
+  if(phone+'\n' in lines or phone==lines[-1] or phone==lines[0]):
+    print('this phone number already checkin')
+    f.close()
+  else:
+    f.close()
+    for i in range(5):
+      a=pl[i]
+      f = open(a+".txt", "r")
+      lines = f.readlines()
+      f.close()
+      f = open(a+".txt", "w")
+      for line in lines:
+        print(line)
+        if line.strip("\n") != phone:
+          f.write(line)
+      f.close()
+    f = open(pl[int(place)-1]+".txt", "a")
+    f.write(phone+'\n')
+    print('Checking in ' + phone + ' into ' +pl[place-1])
+    f.close()
+  return
 print('''Welcome to Chula Chanal!!!
 Available commands:
         1. Check in user
@@ -15,15 +40,11 @@ if(command=='1'):
   4. Sanum Juub
   5. Samyan Mitr Town''')
   place = int(input('Select the place: '))
-  print('Checking in ' + phone + ' into ' +pl[place-1])
+  checkin(phone,place)
 if(command=='2'):
   print('-----------------------------------------------------------------')
   print('Check out')
+  phone = input('Enter phone number: ')
 if(command=='3'):
   print('-----------------------------------------------------------------')
-  print('Current Population: ')
-  print('1. Mahamakut Building: ')
-  print('2. Sara Phra Kaew: ')
-  print('3. CU Sport Complex: ')
-  print('4. Sanum Juub: ')
-  print('5. Samyan Mitr Town: ')
+  
