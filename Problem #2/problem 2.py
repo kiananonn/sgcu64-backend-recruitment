@@ -63,4 +63,15 @@ if(command=='2'):
   phone = input('Enter phone number: ')
 if(command=='3'):
   print('-----------------------------------------------------------------')
+  count=[0,0,0,0,0]
+  for i in range(5):
+    f = open(pl[i]+".txt", "r")
+    lines = [line.strip("\n") for line in f if line != "\n"]
+    count[i]=len(lines)-1
+  print('Current Population: ')
+  print('1. Mahamakut Building: '+str(count[0]))
+  print('2. Sara Phra Kaew: '+str(count[1]))
+  print('3. CU Sport Complex: '+str(count[2]))
+  print('4. Sanum Juub: '+str(count[3]))
+  print('5. Samyan Mitr Town: '+str(count[4]))
   
