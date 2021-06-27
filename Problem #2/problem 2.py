@@ -16,3 +16,14 @@ if(command=='1'):
   5. Samyan Mitr Town''')
   place = int(input('Select the place: '))
   print('Checking in ' + phone + ' into ' +pl[place-1])
+if(command=='2'):
+  print('-----------------------------------------------------------------')
+  print('Check out')
+if(command=='3'):
+  print('-----------------------------------------------------------------')
+  print('Current Population: ')
+  print('1. Mahamakut Building: ')
+  print('2. Sara Phra Kaew: ')
+  print('3. CU Sport Complex: ')
+  print('4. Sanum Juub: ')
+  print('5. Samyan Mitr Town: ')
